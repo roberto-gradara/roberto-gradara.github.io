@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roberto Gradara — Probability &amp; Random Measures</title>
+  <meta name="description" content="Roberto Gradara — PhD researcher in Probability and Random Measures at Imperial College London. Supervised by Prof. R. Passeggeri. Research interests: random measures, stochastic processes, stochastic PDEs, optimal transport.">
+  <meta name="keywords" content="Roberto Gradara, probability, random measures, Imperial College London, mathematics, stochastic processes, stochastic PDEs, optimal transport, Roth Scholar">
+  <meta name="author" content="Roberto Gradara">
+
+  <!-- Open Graph for social sharing -->
+  <meta property="og:title" content="Roberto Gradara — Researcher in Probability &amp; Random Measures">
+  <meta property="og:description" content="PhD researcher at Imperial College London. Research in probability theory, random measures, and stochastic processes.">
+  <meta property="og:type" content="website">
+
+  <!-- Schema.org structured data for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Roberto Gradara",
+    "jobTitle": "PhD Researcher",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Imperial College London",
+      "department": {
+        "@type": "Organization",
+        "name": "Department of Mathematics"
+      }
+    },
+    "alumniOf": [
+      {
+        "@type": "Organization",
+        "name": "University of Udine"
+      },
+      {
+        "@type": "Organization",
+        "name": "Toppo Wasserman School of Advanced Studies"
+      }
+    ],
+    "url": "",
+    "knowsAbout": ["Probability Theory", "Random Measures", "Stochastic Processes", "Measure Theory", "Optimal Transport", "Stochastic PDEs"]
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@300;400;600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #1565c0;
+      --primary-dark: #0d47a1;
+      --accent: #00897b;
+      --bg: #ffffff;
+      --bg-hero: #f5f7fa;
+      --bg-alt: #fafbfc;
+      --fg: #212121;
+      --fg-muted: #616161;
+      --border: #e0e0e0;
+      --max-width: 960px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--fg);
+      background: var(--bg);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    nav .nav-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: var(--fg);
+      text-decoration: none;
+    }
+    nav .nav-links a {
+      color: var(--fg-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      margin-left: 28px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav .nav-links a:hover { color: var(--primary); }
+
+    /* ── Hero Section ── */
+    .hero {
+      background: var(--bg-hero);
+      padding: 64px 24px;
+    }
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+    .hero-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+      background: #cfd8dc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      color: #90a4ae;
+    }
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      margin-bottom: 8px;
+      color: var(--fg);
+    }
+    .hero-text .subtitle {
+      font-size: 18px;
+      color: var(--fg-muted);
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+    .hero-text .affiliation {
+      font-size: 15px;
+      color: var(--fg-muted);
+    }
+    .hero-text .affiliation a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .hero-links {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--fg-muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .hero-links a:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* ── Sections ── */
+    section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+    section + section {
+      border-top: 1px solid var(--border);
+    }
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      margin-bottom: 24px;
+      color: var(--fg);
+    }
+    section h3 {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 28px 0 12px 0;
+      color: var(--fg);
+    }
+    section p {
+      color: var(--fg);
+      margin-bottom: 16px;
+      font-family: 'Source Serif 4', serif;
+      font-size: 16px;
+    }
+
+    /* ── Research Interests ── */
+    .interests {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .interest-tag {
+      background: #e3f2fd;
+      color: var(--primary-dark);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* ── Publications ── */
+    .pub-list { list-style: none; }
+    .pub-item {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-title {
+      font-family: 'Source Serif 4', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--fg);
+      margin-bottom: 4px;
+    }
+    .pub-authors {
+      font-size: 14px;
+      color: var(--fg-muted);
+      margin-bottom: 4px;
+    }
+    .pub-venue {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .pub-links {
+      margin-top: 8px;
+    }
+    .pub-links a {
+      font-size: 12px;
+      color: var(--primary);
+      text-decoration: none;
+      margin-right: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .pub-links a:hover { text-decoration: underline; }
+
+    /* ── Education timeline ── */
+    .edu-item {
+      padding: 16px 0 16px 20px;
+      border-left: 3px solid var(--border);
+      position: relative;
+      margin-bottom: 8px;
+    }
+    .edu-item::before {
+      content: '';
+      position: absolute;
+      left: -7px;
+      top: 22px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 2px solid #fff;
+    }
+    .edu-item .edu-degree {
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .edu-item .edu-school {
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .edu-item .edu-date {
+      font-size: 13px;
+      color: var(--fg-muted);
+    }
+    .edu-item .edu-detail {
+      font-size: 14px;
+      color: var(--fg);
+      margin-top: 4px;
+      font-family: 'Source Serif 4', serif;
+      line-height: 1.6;
+    }
+
+    /* ── Talks / Experience ── */
+    .talk-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .talk-item:last-child { border-bottom: none; }
+    .talk-title {
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .talk-meta {
+      font-size: 13px;
+      color: var(--fg-muted);
+      margin-top: 2px;
+    }
+    .talk-desc {
+      font-size: 14px;
+      color: var(--fg);
+      margin-top: 4px;
+      font-family: 'Source Serif 4', serif;
+    }
+
+    /* ── Contact ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: #e3f2fd;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 18px;
+    }
+    .contact-label {
+      font-size: 12px;
+      color: var(--fg-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+    .contact-value {
+      font-size: 15px;
+      color: var(--fg);
+      margin-top: 2px;
+    }
+    .contact-value a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .contact-value a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--fg-muted);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .hero-inner { flex-direction: column; text-align: center; gap: 24px; }
+      .hero-links { justify-content: center; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .hero-text h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-name">Roberto Gradara</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#talks">Talks</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-photo">RG</div>
+      <div class="hero-text">
+        <h1>Roberto Gradara</h1>
+        <p class="subtitle">PhD Researcher in Probability &amp; Random Measures</p>
+        <p class="affiliation">
+          <a href="https://www.imperial.ac.uk/mathematics/" target="_blank">Department of Mathematics</a> &middot;
+          <a href="https://www.imperial.ac.uk/" target="_blank">Imperial College London</a>
+        </p>
+        <div class="hero-links">
+          <a href="mailto:robertos.gradara@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/roberto-gradara99/" target="_blank">LinkedIn</a>
+          <a href="cv.pdf" target="_blank">CV (PDF)</a>
+          <!-- Uncomment when available:
+          <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Google Scholar</a>
+          <a href="https://orcid.org/0000-0000-0000-0000" target="_blank">ORCID</a>
+          -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      I am a PhD student in Mathematics (Probability/Statistics) at Imperial College London,
+      supervised by <a href="https://www.imperial.ac.uk/people/r.passeggeri" style="color:var(--primary)">Prof. R. Passeggeri</a>.
+      My research focuses on random measures and stochastic PDEs.
+      My position is fully funded by the <strong>Roth Scholarship</strong>.
+    </p>
+    <p>
+      Previously, I obtained my MSc in Mathematics (<em>cum laude</em>) from the University of Udine,
+      where I also attended the "Toppo Wasserman" School of Advanced Studies, a selective excellence programme
+      modelled after the French grandes &eacute;coles.
+      My MSc thesis, <em>Bounds for exotic options</em>, applied Villani's optimal transport theory
+      to path-dependent option pricing, completed during a research stay at Zeliade Systems in Paris.
+    </p>
+    <p>
+      I currently serve as a Graduate Teaching Assistant for the undergraduate course <em>Calculus and Applications</em> at Imperial.
+    </p>
+
+    <h3>Education</h3>
+    <div class="edu-item">
+      <div class="edu-degree">PhD, Mathematics</div>
+      <div class="edu-school">Imperial College London</div>
+      <div class="edu-date">Sep 2025 &ndash; present</div>
+      <div class="edu-detail">Probability/Statistics. Supervised by Prof. R. Passeggeri. Roth Scholarship.</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">MSc, Mathematics &mdash; 110/110 cum laude</div>
+      <div class="edu-school">University of Udine</div>
+      <div class="edu-date">Dec 2021 &ndash; Mar 2024</div>
+      <div class="edu-detail">Thesis: <em>Bounds for exotic options</em>. Supervisors: Prof. A. Zanette, Dr C. Martini, Prof. A. Molent.</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">MSc, Mathematics Excellence Program &mdash; 110/110</div>
+      <div class="edu-school">"Toppo Wasserman" School of Advanced Studies</div>
+      <div class="edu-date">Sep 2018 &ndash; Mar 2024</div>
+      <div class="edu-detail">Selective institution complementing the University of Udine curriculum. Full scholarship.</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">BSc, Mathematics &mdash; 110/110 cum laude</div>
+      <div class="edu-school">University of Udine</div>
+      <div class="edu-date">Sep 2018 &ndash; Dec 2021</div>
+      <div class="edu-detail">Dissertation: <em>Conservative Systems generated by Delay Differential Equations</em>. Supervisor: Prof. F. Zanolin.</div>
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section id="research">
+    <h2>Research Interests</h2>
+    <p>
+      My work lies at the intersection of probability theory and measure theory.
+      I am particularly interested in the structure and properties of random measures
+      and their extensions to infinite-dimensional spaces, as well as stochastic PDEs
+      and optimal transport in measure spaces.
+    </p>
+    <div class="interests">
+      <span class="interest-tag">Random Measures</span>
+      <span class="interest-tag">Probability Theory</span>
+      <span class="interest-tag">Stochastic PDEs</span>
+      <span class="interest-tag">Optimal Transport</span>
+      <span class="interest-tag">Stochastic Processes</span>
+      <span class="interest-tag">Measure Theory</span>
+      <span class="interest-tag">Mathematical Finance</span>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section id="publications">
+    <h2>Publications &amp; Preprints</h2>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <div class="pub-title">Hedging options with other options in a trinomial tree: theory</div>
+        <div class="pub-authors">R. Gradara, C. Martini</div>
+        <div class="pub-venue">In preparation</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Talks & Conferences -->
+  <section id="talks">
+    <h2>Talks &amp; Conferences</h2>
+    <div class="talk-item">
+      <div class="talk-title">Optimal Transport and Model Calibration Workshop</div>
+      <div class="talk-meta">Conference Lecturer &middot; Marseille, France &middot; Apr 2024</div>
+      <div class="talk-desc">Co-presented a lecture with Dr C. Martini on Martingale Optimal Transport, covering state-of-the-art results on path-dependent option pricing.</div>
+    </div>
+    <div class="talk-item">
+      <div class="talk-title">First Italian Summer School on Geometric Deep Learning</div>
+      <div class="talk-meta">Speaker &middot; Pescara, Italy &middot; Jul 2022</div>
+      <div class="talk-desc">Scientific retreat featuring M. Bronstein, C. Bodnar, F. Di Giovanni, P. De Haan, and M. Weiler.</div>
+    </div>
+    <div class="talk-item">
+      <div class="talk-title">Mathematical Modelling for Epidemiology &mdash; CIME Summer School</div>
+      <div class="talk-meta">Research Participant &middot; Cetraro, Italy &middot; Sep 2022</div>
+      <div class="talk-desc">Selected for a research project on population dynamics applying optimal transport and semigroup theory to delay differential equations in epidemiological models.</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-icon">@</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value"><a href="mailto:robertos.gradara@gmail.com">robertos.gradara@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">in</div>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value"><a href="https://www.linkedin.com/in/roberto-gradara99/" target="_blank">roberto-gradara99</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">&#8962;</div>
+        <div>
+          <div class="contact-label">Office</div>
+          <div class="contact-value">Huxley Building, Imperial College London<br>180 Queen's Gate, London SW7 2AZ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Roberto Gradara
+  </footer>
+
+</body>
+</html>
